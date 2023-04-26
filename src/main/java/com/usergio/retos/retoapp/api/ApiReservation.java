@@ -1,5 +1,7 @@
 package com.usergio.retos.retoapp.api;
 
+import com.usergio.retos.retoapp.custom.CountClient;
+import com.usergio.retos.retoapp.custom.StatusAmount;
 import com.usergio.retos.retoapp.modelo.entidad.Reservation;
 import com.usergio.retos.retoapp.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +41,19 @@ public class ApiReservation {
     public ResponseEntity deleteReservation (@PathVariable long id){
         service.deleteReservation(id);
         return  ResponseEntity.status(204).build();
+    }
+    @GetMapping("/report-date/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationReportDates(@PathVariable String dateOne,
+                                                       @PathVariable String dateTwo){
+        return service.getReservationPeriod(dateOne,dateTwo);
+    }
+    @GetMapping("/report-status")
+    public StatusAmount getReservationStatusReport(){
+        return service.getReservationByStatusReport();
+    }
+
+    @GetMapping("/report-clients")
+    public List<CountClient> getReservationReportClient(){
+        return service.getTopClients();
     }
 }

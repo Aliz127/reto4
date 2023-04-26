@@ -20,7 +20,7 @@ public class Reservation implements Serializable {
     @Id //aqui le digo q esta es la primary key en la tabla
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Autoincremental
     private Long idReservation;
-    private Date starDate;
+    private Date startDate;
     private Date devolutionDate;
     private String status="created";
 
