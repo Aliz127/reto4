@@ -42,13 +42,14 @@ public class ApiReservation {
         service.deleteReservation(id);
         return  ResponseEntity.status(204).build();
     }
-    @GetMapping("/report-date/{dateOne}/{dateTwo}")
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
     public List<Reservation> getReservationReportDates(@PathVariable String dateOne,
                                                        @PathVariable String dateTwo){
         return service.getReservationPeriod(dateOne,dateTwo);
     }
     @GetMapping("/report-status")
     public StatusAmount getReservationStatusReport(){
+
         return service.getReservationByStatusReport();
     }
 
