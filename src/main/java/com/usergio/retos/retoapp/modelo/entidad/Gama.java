@@ -2,10 +2,7 @@ package com.usergio.retos.retoapp.modelo.entidad;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,6 +13,7 @@ import java.util.List;
 @Data //me trae lo seter y getter
 @Entity // le digo q mi tabla es una entidad
 @Table(name="gama")
+@Builder
 public class Gama implements Serializable {
     @Id //aqui le digo q esta es la primary key en la tabla
     @GeneratedValue(strategy = GenerationType.IDENTITY) //autoincremental
